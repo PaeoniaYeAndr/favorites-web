@@ -36,7 +36,7 @@ public class CollectRepositoryTest {
 	
 	@Test
 	public void testFindView() throws Exception {
-	 /*   Page<CollectView> views=collectRepository.findByUserId(1l,new PageRequest(0, 10, Direction.ASC, "title"));
+	 /*   Page<CollectView> views=collectRepository.findByUserId(1l,PageRequest.of(0, 10, Direction.ASC, "title"));
 	    for(CollectView view:views){
 	    	System.out.println("collect title==" +view.getTitle());
 	    }*/
@@ -45,7 +45,7 @@ public class CollectRepositoryTest {
 	
 	@Test
 	public void testFindAllView() throws Exception {
-	    Page<CollectView> views=collectRepository.findExploreView(1l, new PageRequest(0, 10, Direction.ASC, "title"));
+	    Page<CollectView> views=collectRepository.findExploreView(1l, PageRequest.of(0, 10, Direction.ASC, "title"));
 	    for(CollectView view:views){
 	    	System.out.print("   collect title==" +view.getTitle());
 	    	System.out.print("   FavoriteName==" +view.getFavoriteName());
@@ -57,7 +57,7 @@ public class CollectRepositoryTest {
 	
 	@Test
 	public void testFindViewByUserId() throws Exception {
-	    Page<CollectView> views=collectRepository.findViewByUserId(2l,new PageRequest(0, 10, Direction.ASC, "title"));
+	    Page<CollectView> views=collectRepository.findViewByUserId(2l,PageRequest.of(0, 10, Direction.ASC, "title"));
 	    for(CollectView view:views){
 	    	System.out.print("   collect title==" +view.getTitle());
 	    	System.out.print("   FavoriteName==" +view.getFavoriteName());
@@ -71,7 +71,7 @@ public class CollectRepositoryTest {
 		List<Long> userIds=new ArrayList<Long>();
 		userIds.add(2l);
 		userIds.add(3l);
-	    Page<CollectView> views=collectRepository.findViewByUserIdAndFollows(2l,userIds,new PageRequest(0, 10, Direction.ASC, "title"));
+	    Page<CollectView> views=collectRepository.findViewByUserIdAndFollows(2l,userIds,PageRequest.of(0, 10, Direction.ASC, "title"));
 	    for(CollectView view:views){
 	    	System.out.print("   collect title==" +view.getTitle());
 	    	System.out.print("   FavoriteName==" +view.getFavoriteName());
